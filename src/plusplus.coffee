@@ -58,7 +58,7 @@ module.exports = (robot) ->
       else
         name = (name.replace /(^\s*@)|([,:\s]*$)/g, '').trim().toLowerCase()
 
-    if name == 'c++' && operator == "++"
+    if (name == 'c++' || name == 'cplusplus') && operator == "++"
       msg.reply "Sorry, you can't upvote C++. Only downvote"
       return
     # check whether a name was specified. use MRU if not
