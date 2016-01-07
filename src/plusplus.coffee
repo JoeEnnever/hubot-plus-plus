@@ -35,7 +35,7 @@ module.exports = (robot) ->
     # from beginning of line
     ^
     # the thing being upvoted, which is any number of words and spaces
-    ([\s\w'@.\-:]*)
+    ([\s\w'@.\-:]*||c\+\+)
     # allow for spaces after the thing being upvoted (@user ++)
     \s*
     # the increment/decrement operator ++ or --
@@ -58,11 +58,13 @@ module.exports = (robot) ->
       else
         name = (name.replace /(^\s*@)|([,:\s]*$)/g, '').trim().toLowerCase()
 
+    if name == 'c++' && operator == "++"
+      msg.reply "Sorry, you can't upvote C++. Only downvote"
+      return
     # check whether a name was specified. use MRU if not
     unless name? && name != ''
       [name, lastReason] = scoreKeeper.last(room)
       reason = lastReason if !reason? && lastReason?
-
     # do the {up, down}vote, and figure out what the new score is
     [score, reasonScore] = if operator == "++"
               scoreKeeper.add(name, from, room, reason)
