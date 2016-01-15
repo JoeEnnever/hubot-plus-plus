@@ -64,7 +64,7 @@ module.exports = (robot) ->
       reason = lastReason if !reason? && lastReason?
 
     if (name == 'c++' || name == 'cplusplus' || name == 'todd') && operator == "++"
-      msg.reply "Sorry, you can't upvote C++. Only downvote"
+      msg.reply "Sorry, you can't upvote #{name}. Only downvote"
       return
     # do the {up, down}vote, and figure out what the new score is
     [score, reasonScore] = if operator == "++"
