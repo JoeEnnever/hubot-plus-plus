@@ -58,13 +58,14 @@ module.exports = (robot) ->
       else
         name = (name.replace /(^\s*@)|([,:\s]*$)/g, '').trim().toLowerCase()
 
-    if (name == 'c++' || name == 'cplusplus') && operator == "++"
-      msg.reply "Sorry, you can't upvote C++. Only downvote"
-      return
     # check whether a name was specified. use MRU if not
     unless name? && name != ''
       [name, lastReason] = scoreKeeper.last(room)
       reason = lastReason if !reason? && lastReason?
+
+    if (name == 'c++' || name == 'cplusplus') && operator == "++"
+      msg.reply "Sorry, you can't upvote C++. Only downvote"
+      return
     # do the {up, down}vote, and figure out what the new score is
     [score, reasonScore] = if operator == "++"
               scoreKeeper.add(name, from, room, reason)
