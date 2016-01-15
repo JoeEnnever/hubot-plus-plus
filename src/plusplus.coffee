@@ -63,7 +63,7 @@ module.exports = (robot) ->
       [name, lastReason] = scoreKeeper.last(room)
       reason = lastReason if !reason? && lastReason?
 
-    if (name == 'c++' || name == 'cplusplus') && operator == "++"
+    if (name == 'c++' || name == 'cplusplus' || name == 'todd') && operator == "++"
       msg.reply "Sorry, you can't upvote C++. Only downvote"
       return
     # do the {up, down}vote, and figure out what the new score is
