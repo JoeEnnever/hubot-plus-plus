@@ -101,24 +101,8 @@ class ScoreKeeper
     else
       [last.user, last.reason]
 
-  isSpam: (user, from) ->
-    @storage.log[from] ||= {}
-
-    if !@storage.log[from][user]
-      return false
-
-    dateSubmitted = @storage.log[from][user]
-
-    date = new Date(dateSubmitted)
-    messageIsSpam = date.setSeconds(date.getSeconds() + 5) > new Date()
-
-    if !messageIsSpam
-      delete @storage.log[from][user] #clean it up
-
-    messageIsSpam
-
   validate: (user, from) ->
-    user != from && user != "" && !@isSpam(user, from)
+    user != from && user != ""
 
   length: () ->
     @storage.log.length
