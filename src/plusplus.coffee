@@ -134,14 +134,15 @@ module.exports = (robot) ->
     name = msg.match[2].trim().toLowerCase()
     score = scoreKeeper.scoreForUser(name)
     reasons = scoreKeeper.reasonsForUser(name)
-
+    pointWord = if score == 1 then "point" else "points"
     reasonString = if typeof reasons == 'object' && Object.keys(reasons).length > 0
-                     "#{name} has #{score} points. here are some raisins:" +
+                     "#{name} has #{score} #{pointWord}. here are some raisins:" +
                      _.reduce(reasons, (memo, val, key) ->
-                       memo += "\n#{key}: #{val} points"
+                       otherPointWord = if val == 1 then "point" else "points"
+                       memo += "\n#{key}: #{val} #{otherPointWord}"
                      , "")
                    else
-                     "#{name} has #{score} points."
+                     "#{name} has #{score} #{pointWord}."
 
     msg.send reasonString
 
