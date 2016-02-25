@@ -26,7 +26,7 @@ _ = require('underscore')
 clark = require('clark')
 querystring = require('querystring')
 ScoreKeeper = require('./scorekeeper')
-
+SlackBotMessage = require('hubot-slack').SlackBotMessage
 module.exports = (robot) ->
   scoreKeeper = new ScoreKeeper(robot)
 
@@ -49,7 +49,7 @@ module.exports = (robot) ->
     from = msg.message.user.name.toLowerCase()
     room = msg.message.room
 
-    if msg.rawMessage.subtype is 'bot_message'
+    if msg.rawMessage.subtype is 'bot_message' || msg instanceof SlackBotMessage
       msg.reply "Bots don't have the right to vote"
       return
 
