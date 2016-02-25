@@ -27,6 +27,7 @@ clark = require('clark')
 querystring = require('querystring')
 ScoreKeeper = require('./scorekeeper')
 SlackBotMessage = require('hubot-slack').SlackBotMessage
+
 module.exports = (robot) ->
   scoreKeeper = new ScoreKeeper(robot)
 
@@ -49,7 +50,7 @@ module.exports = (robot) ->
     from = msg.message.user.name.toLowerCase()
     room = msg.message.room
 
-    if msg instanceof SlackBotMessage
+    if msg.message instanceof SlackBotMessage
       msg.reply "Bots don't have the right to vote"
       return
 
