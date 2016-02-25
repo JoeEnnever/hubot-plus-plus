@@ -49,7 +49,7 @@ module.exports = (robot) ->
     from = msg.message.user.name.toLowerCase()
     room = msg.message.room
 
-    if msg.rawMessage.subtype is 'bot_message' || msg instanceof SlackBotMessage
+    if msg instanceof SlackBotMessage
       msg.reply "Bots don't have the right to vote"
       return
 
