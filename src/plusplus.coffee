@@ -50,6 +50,7 @@ module.exports = (robot) ->
     from = msg.message.user.name.toLowerCase()
     room = msg.message.room
 
+    console.log(JSON.stringify(msg.message))
     if msg.message instanceof SlackBotMessage
       msg.reply "Bots don't have the right to vote"
       return
