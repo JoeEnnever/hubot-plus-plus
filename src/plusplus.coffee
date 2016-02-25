@@ -50,7 +50,7 @@ module.exports = (robot) ->
     from = msg.message.user.name.toLowerCase()
     room = msg.message.room
 
-    if msg.message.user.is_bot
+    if msg.message.user.slack.is_bot
       msg.reply "Bots don't have the right to vote"
       return
 
