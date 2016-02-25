@@ -48,7 +48,8 @@ module.exports = (robot) ->
     [dummy, name, operator, reason] = msg.match
     from = msg.message.user.name.toLowerCase()
     room = msg.message.room
-    if msg.message.subtype is 'bot_message'
+
+    if msg.rawMessage.subtype is 'bot_message'
       msg.reply "Bots don't have the right to vote"
       return
 
