@@ -109,6 +109,8 @@ module.exports = (robot) ->
     (?:\s+(?:for|because|cause|cuz)\s+(.+))?
     $ # eol
   ///i, (msg) ->
+    msg.reply "No more erase, blame @vijay"
+    return
     [__, name, reason] = msg.match
     from = msg.message.user.name.toLowerCase()
     user = msg.envelope.user
