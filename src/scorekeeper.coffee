@@ -102,7 +102,7 @@ class ScoreKeeper
       [last.user, last.reason]
 
   validate: (user, from) ->
-    user != from && user != "" && !messageIsSpam(user, from)
+    user != from && user != "" && !isSpam(user, from)
 
   isSpam: (user, from) ->
     @storage.log[from] ||= {}
