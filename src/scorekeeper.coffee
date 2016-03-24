@@ -113,7 +113,7 @@ class ScoreKeeper
     dateSubmitted = @storage.log[from][user]
 
     date = new Date(dateSubmitted)
-    messageIsSpam = date.setSeconds(date.getSeconds() + 86400) > new Date()
+    messageIsSpam = date.setSeconds(date.getSeconds() + 3600) > new Date()
 
     if !messageIsSpam
       delete @storage.log[from][user] #clean it up
