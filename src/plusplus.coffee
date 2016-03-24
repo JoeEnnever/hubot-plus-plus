@@ -162,9 +162,9 @@ module.exports = (robot) ->
                      "#{name} has #{score} #{pointWord}. here are some raisins:" +
                      _.reduce(reasons, (memo, val, key) ->
                        if val < 0
-                        memo += "\n#{key}: #{val} points"
-                      else
-                        memo += ""
+                         memo += "\n#{key}: #{val} points"
+                       else
+                         memo += ""
                      , "")
                    else
                      "#{name} has #{score} #{pointWord}."
