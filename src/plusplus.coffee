@@ -157,7 +157,7 @@ module.exports = (robot) ->
     name = msg.match[2].trim().toLowerCase()
     score = scoreKeeper.scoreForUser(name)
     reasons = scoreKeeper.reasonsForUser(name)
-    pointWord = if score === 1 then "point" else "points"
+    pointWord = if score == 1 then "point" else "points"
     reasonString = if typeof reasons == 'object' && Object.keys(reasons).length > 0
                      "#{name} has #{score} #{pointWord}. here are some raisins:" +
                      _.reduce(reasons, (memo, val, key) ->
