@@ -206,6 +206,7 @@ module.exports = (robot) ->
 
     if query.name
       obj = {}
+      obj['reasons'] = scoreKeeper.reasonsForUser(query.name)
       obj[query.name] = scoreKeeper.scoreForUser(query.name)
       res.end JSON.stringify(obj)
     else
