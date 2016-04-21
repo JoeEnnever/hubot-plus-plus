@@ -102,7 +102,7 @@ class ScoreKeeper
       [last.user, last.reason]
 
   validate: (user, from, score, direction) ->
-    if direction < 0 && score <= 100
+    if direction < 0 && score <= -100
       return false
     user != from && user != "" && !@isSpam(user, from)
 
