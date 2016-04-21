@@ -96,7 +96,7 @@ module.exports = (robot) ->
                     "#{name} has #{score} points"
 
       msg.send message
-      if score == -100 && !scoreKeeper.celebrated100(user)
+      if score == -100 && !scoreKeeper.celebrated100(name)
         setTimeout(() =>
           msg.send "YOU DID IT VIJAY!"
           msg.send "https://media.giphy.com/media/YYD3fLEOdcOv6/giphy.gif"
