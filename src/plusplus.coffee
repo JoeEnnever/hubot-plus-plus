@@ -95,23 +95,23 @@ module.exports = (robot) ->
         setTimeout(() =>
           msg.send "YOU DID IT VIJAY!"
           msg.send "https://media.giphy.com/media/YYD3fLEOdcOv6/giphy.gif"
-        , 500)
+        , 2000)
         setTimeout(() =>
           msg.send "YOU MADE IT!"
           msg.send "https://media.giphy.com/media/84DhLtzE33YvS/giphy.gif"
-        , 1000)
+        , 4000)
         setTimeout(() =>
           msg.send "TODAY IS YOUR DAY!"
           msg.send "https://media.giphy.com/media/4SjSCUMhuAcda/giphy.gif"
-        , 1500)
+        , 6000)
         setTimeout(() =>
           msg.send "@here VIJAY HIT -100!"
           msg.send "https://media.giphy.com/media/zaDi0mXkYM3eg/giphy.gif"
-        , 2000)
+        , 8000)
         setTimeout(() =>
           msg.send "@here END OF AN ERA! CELEBRATION IN THE ENG ROOM"
           msg.send "https://media.giphy.com/media/zAQzMspkNl2Ao/giphy.gif"
-        , 2500)
+        , 10000)
 
       robot.emit "plus-one", {
         name:      name
