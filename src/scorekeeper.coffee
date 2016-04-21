@@ -149,4 +149,10 @@ class ScoreKeeper
     @storage.scores = scores
     @robot.brain.save()
 
+  celebrated100: (user) ->
+    @storage.celebrations ||= {}
+    ret = !!@storage.celebrations[user]
+    @storage.celebrations[user] = true
+    return ret
+
 module.exports = ScoreKeeper

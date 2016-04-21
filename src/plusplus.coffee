@@ -71,6 +71,11 @@ module.exports = (robot) ->
     if (name == 'c++' || name == 'cplusplus') && operator == "++"
       msg.reply "Sorry, you can't upvote #{name}. Only downvote"
       return
+
+    if (name == 'vijay' || name == 'test') && scoreKeeper.scoreForUser(name) <= -100 && operator == "--"
+      msg.send "https://cdn.meme.am/instances/500x/67985421.jpg"
+      return
+
     # do the {up, down}vote, and figure out what the new score is
     [score, reasonScore] = if operator == "++"
               scoreKeeper.add(name, from, room, reason)
@@ -91,7 +96,7 @@ module.exports = (robot) ->
                     "#{name} has #{score} points"
 
       msg.send message
-      if score == -100
+      if score == -100 && !scoreKeeper.celebrated100(user)
         setTimeout(() =>
           msg.send "YOU DID IT VIJAY!"
           msg.send "https://media.giphy.com/media/YYD3fLEOdcOv6/giphy.gif"
