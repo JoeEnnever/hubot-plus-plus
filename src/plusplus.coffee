@@ -90,14 +90,28 @@ module.exports = (robot) ->
                   else
                     "#{name} has #{score} points"
 
-
       msg.send message
       if score == -100
-        msg.send "https://media.giphy.com/media/YYD3fLEOdcOv6/giphy.gif"
-        msg.send "https://media.giphy.com/media/84DhLtzE33YvS/giphy.gif"
-        msg.send "https://media.giphy.com/media/4SjSCUMhuAcda/giphy.gif"
-        msg.send "https://media.giphy.com/media/zaDi0mXkYM3eg/giphy.gif"
-        msg.send "https://media.giphy.com/media/zAQzMspkNl2Ao/giphy.gif"
+        setTimeout(() =>
+          msg.send "YOU DID IT VIJAY!"
+          msg.send "https://media.giphy.com/media/YYD3fLEOdcOv6/giphy.gif"
+        , 500)
+        setTimeout(() =>
+          msg.send "YOU MADE IT!"
+          msg.send "https://media.giphy.com/media/84DhLtzE33YvS/giphy.gif"
+        , 1000)
+        setTimeout(() =>
+          msg.send "TODAY IS YOUR DAY!"
+          msg.send "https://media.giphy.com/media/4SjSCUMhuAcda/giphy.gif"
+        , 1500)
+        setTimeout(() =>
+          msg.send "@here VIJAY HIT -100!"
+          msg.send "https://media.giphy.com/media/zaDi0mXkYM3eg/giphy.gif"
+        , 2000)
+        setTimeout(() =>
+          msg.send "@here END OF AN ERA! CELEBRATION IN THE ENG ROOM"
+          msg.send "https://media.giphy.com/media/zAQzMspkNl2Ao/giphy.gif"
+        , 2500)
 
       robot.emit "plus-one", {
         name:      name
