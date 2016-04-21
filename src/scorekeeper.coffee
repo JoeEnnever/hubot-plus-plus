@@ -38,8 +38,8 @@ class ScoreKeeper
     [@storage.scores[user], @storage.reasons[user][reason] || ""]
 
   add: (user, from, room, reason) ->
-    if @validate(user, from)
-      user = @getUser(user)
+    user = @getUser(user)
+    if @validate(user, from, @storage.scores[user], 1)
       @storage.scores[user]++
       @storage.reasons[user] ||= {}
 
@@ -52,8 +52,8 @@ class ScoreKeeper
       [null, null]
 
   subtract: (user, from, room, reason) ->
-    if @validate(user, from)
-      user = @getUser(user)
+    user = @getUser(user)
+    if @validate(user, from, @storage.scores[user], -1)
       @storage.scores[user]--
       @storage.reasons[user] ||= {}
 
@@ -101,11 +101,15 @@ class ScoreKeeper
     else
       [last.user, last.reason]
 
-  validate: (user, from) ->
+  validate: (user, from, score, direction) ->
+    if direction < 0 && score <= 100
+      return false
     user != from && user != "" && !@isSpam(user, from)
 
   isSpam: (user, from) ->
     @storage.log[from] ||= {}
+    if user.match(/test$/)
+      return false
 
     if !@storage.log[from][user]
       return false

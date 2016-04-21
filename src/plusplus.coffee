@@ -92,6 +92,12 @@ module.exports = (robot) ->
 
 
       msg.send message
+      if score == -100
+        msg.send "https://media.giphy.com/media/YYD3fLEOdcOv6/giphy.gif"
+        msg.send "https://media.giphy.com/media/84DhLtzE33YvS/giphy.gif"
+        msg.send "https://media.giphy.com/media/4SjSCUMhuAcda/giphy.gif"
+        msg.send "https://media.giphy.com/media/zaDi0mXkYM3eg/giphy.gif"
+        msg.send "https://media.giphy.com/media/zAQzMspkNl2Ao/giphy.gif"
 
       robot.emit "plus-one", {
         name:      name
