@@ -72,7 +72,7 @@ module.exports = (robot) ->
       msg.reply "Sorry, you can't upvote #{name}. Only downvote"
       return
 
-    if (name == 'vijay' || name == 'test') && scoreKeeper.scoreForUser(name) <= -100 && operator == "--"
+    if (name == 'vijay')
       msg.send "https://cdn.meme.am/instances/500x/67985421.jpg"
       return
 
