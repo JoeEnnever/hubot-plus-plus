@@ -104,7 +104,10 @@ class ScoreKeeper
   validate: (user, from, score, direction) ->
     if direction < 0 && score <= -100
       return false
-    user != from && user != "" && !@isSpam(user, from)
+    !@selfUpvote(user, from) && user != "" && !@isSpam(user, from)
+
+  selfUpvote: (user, from) ->
+    user == from || (from == 'vijay' && user == 'vj')
 
   isSpam: (user, from) ->
     @storage.log[from] ||= {}
