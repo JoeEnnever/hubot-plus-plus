@@ -96,27 +96,6 @@ module.exports = (robot) ->
                     "#{name} has #{score} points"
 
       msg.send message
-      if score == -100 && !scoreKeeper.celebrated100(name)
-        setTimeout(() =>
-          msg.send "YOU DID IT VIJAY!"
-          msg.send "https://media.giphy.com/media/YYD3fLEOdcOv6/giphy.gif"
-        , 2000)
-        setTimeout(() =>
-          msg.send "YOU MADE IT!"
-          msg.send "https://media.giphy.com/media/84DhLtzE33YvS/giphy.gif"
-        , 4000)
-        setTimeout(() =>
-          msg.send "TODAY IS YOUR DAY!"
-          msg.send "https://media.giphy.com/media/4SjSCUMhuAcda/giphy.gif"
-        , 6000)
-        setTimeout(() =>
-          msg.send "@here VIJAY HIT -100!"
-          msg.send "https://media.giphy.com/media/zaDi0mXkYM3eg/giphy.gif"
-        , 8000)
-        setTimeout(() =>
-          msg.send "@here END OF AN ERA! CELEBRATION IN THE ENG ROOM"
-          msg.send "https://media.giphy.com/media/zAQzMspkNl2Ao/giphy.gif"
-        , 10000)
 
       robot.emit "plus-one", {
         name:      name
