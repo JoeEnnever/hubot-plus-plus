@@ -72,10 +72,6 @@ module.exports = (robot) ->
       msg.reply "Sorry, you can't upvote #{name}. Only downvote"
       return
 
-    if (name == 'vijay')
-      msg.send "https://cdn.meme.am/instances/500x/67985421.jpg"
-      return
-
     # do the {up, down}vote, and figure out what the new score is
     [score, reasonScore] = if operator == "++"
               scoreKeeper.add(name, from, room, reason)

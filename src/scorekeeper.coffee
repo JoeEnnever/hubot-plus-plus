@@ -102,18 +102,19 @@ class ScoreKeeper
       [last.user, last.reason]
 
   validate: (user, from, score, direction) ->
-    if direction < 0 && score <= -100
+    if direction < 0 && score <= -1000
       return false
-    !@selfUpvote(user, from) && user != "" && !@isSpam(user, from)
+    !@selfUpvote(user, from) && user != "" && !@isSpam(user, from, direction)
 
   selfUpvote: (user, from) ->
     user == from || (from == 'vijay' && user == 'vj')
 
-  isSpam: (user, from) ->
+  isSpam: (user, from, direction) ->
     @storage.log[from] ||= {}
     if user.match(/test$/) or user == "vj" or user == "mitch" or user == "bohu"
       return false
-
+    if user == "vijay" && direction < 0
+      return false
     if !@storage.log[from][user]
       return false
 
