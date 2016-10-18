@@ -111,9 +111,7 @@ class ScoreKeeper
 
   isSpam: (user, from, direction) ->
     @storage.log[from] ||= {}
-    if user.match(/test$/) or user == "vj" or user == "mitch" or user == "bohu"
-      return false
-    if user == "vijay" && direction < 0
+    if user.match(/test$/) or user == "vj" or user == "mitch" or user == "bohu" or user == "vijay"
       return false
     if !@storage.log[from][user]
       return false
